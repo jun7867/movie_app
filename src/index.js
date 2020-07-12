@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Potato from "./potato" // import 해줘야함.
+//import Potato from "./potato" // import 해줘야함.
 
 // component는 html을 반환해주는 함수이다.
 // <App/>  이를 jsx로 말한다.(javascript+ html) react 에서만 쓰임.
