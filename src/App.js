@@ -1,16 +1,34 @@
-import React from 'react';
+import React from "react";
 
-function Food({favorite}){
-  return <h1>I like {favorite} </h1>;
+function Food({ name, picture }) {
+  return (
+    <div>
+      <h2>I like {name}</h2>
+      <img src={picture} />
+    </div>
+  );
 }
+
+const foodILike = [
+  {
+    name: "Kimchi",
+    image:
+      "https://www.bgw.kr/wp-content/uploads/2019/12/%EC%88%98%EC%9E%85%EA%B9%80%EC%B9%98.png",
+  },
+  {
+    name: "coke",
+    image:
+      "https://images-na.ssl-images-amazon.com/images/I/51jKm1MY43L._SX569_.jpg",
+  },
+];
 
 function App() {
   return (
-  <div> 
-    <h1>Hello!! </h1>
-    <Food favorite="Kimchi" /> 
-    <Food favorite="ramen" /> 
-  </div>
+    <div>
+      {foodILike.map((food) => (
+        <Food name={food.name} picture={food.image} />
+      ))}
+    </div>
   );
 }
 
