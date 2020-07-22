@@ -1,4 +1,5 @@
 import React from "react";
+import { render } from "@testing-library/react";
 
 function Food({ name, picture }) {
   return (
@@ -11,37 +12,31 @@ function Food({ name, picture }) {
 
 const foodILike = [
   {
+    id: 1,
     name: "Kimchi",
     image:
       "https://www.bgw.kr/wp-content/uploads/2019/12/%EC%88%98%EC%9E%85%EA%B9%80%EC%B9%98.png",
   },
   {
+    id: 2,
     name: "coke",
     image:
       "https://images-na.ssl-images-amazon.com/images/I/51jKm1MY43L._SX569_.jpg",
   },
 ];
 
+// function renderFood(food) {
+//   return <Food name={food.name} picture={food.image} />;
+// }
+
 function App() {
   return (
     <div>
       {foodILike.map((food) => (
-        <Food name={food.name} picture={food.image} />
+        <Food key={food.id} name={food.name} picture={food.image} />
       ))}
     </div>
   );
 }
 
 export default App;
-
-/* 2.1 Resuable Components with JSX + Props
-component 재사용 가능.
-component는 대문자로 시작
-favorite , {favorite} 는 이름이 똑같아야함
-
-props 예시
-function Food(props){
-  console.log(props.favorite)
-  return <h1>I like Potato </h1>;
-}
-*/
