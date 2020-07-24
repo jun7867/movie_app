@@ -1,8 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Movie from "./Movie";
-//https://yts-proxy.now.sh/list_movies.json
-
+import "./App.css";
 class App extends React.Component {
   state = {
     isLoading: true,
@@ -27,10 +26,11 @@ class App extends React.Component {
   render() {
     const { isLoading, movies } = this.state;
     return (
-      <section class="container">
+      // class안에 있으면 react가 헷갈릴수도 있어서 class -> className
+      <section className="container">
         {isLoading ? (
-          <div class="loader">
-            <span class="loader__text">Loading..</span>
+          <div className="loader">
+            <span className="loader__text">Loading..</span>
           </div>
         ) : (
           movies.map((movie) => (
@@ -41,6 +41,7 @@ class App extends React.Component {
               title={movie.title}
               summary={movie.summary}
               poster={movie.medium_cover_image}
+              genres={movie.genres}
             />
           ))
         )}

@@ -1,15 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import "./Movie.css";
 //state가 필요없다면 class로 안하고 function으로 하면됨.
-function Movie({ year, title, summary, poster }) {
+function Movie({ year, title, summary, poster, genres }) {
   return (
-    <div class="movie">
+    <div className="movie">
       <img src={poster} alt={title} title={title} />
-      <div class="movie__data">
-        <h3 class="movie__title">{title}</h3>
-        <h5 class="movie__year">{title}</h5>
-        <p class="movie__summary">{summary}</p>
+      <div className="movie__data">
+        <h3 className="movie__title">{title}</h3>
+        <h5 className="movie__year">{year}</h5>
+        <ul className="genres">
+          {genres.map((genre, index) => (
+            <li key={index} className="genres__genre">
+              {index}
+              {genre}
+            </li>
+          ))}
+        </ul>
+        <p className="movie__summary">{summary}</p>
       </div>
     </div>
   );
@@ -20,6 +28,7 @@ Movie.propTypes = {
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Movie;
