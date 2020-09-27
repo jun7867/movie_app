@@ -2,8 +2,6 @@
 
 React JS Fundamentals (2020)
 
-### 사이트 주소
-https://jun7867.github.io/movie_app/
 
 
 ### 사용한 기술
